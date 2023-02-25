@@ -1,6 +1,7 @@
 package CollectionsVeMapInterface.SetInterfaceVeHashSet;
 
 import java.util.HashSet;
+import java.util.Iterator;
 
 public class SetLearn {
     //Set ınterface i collection interface inden kalıtım alır, aynı elemanların veri kümesi içerisinde tekrar bulunmasına izin vermez!
@@ -23,6 +24,14 @@ public class SetLearn {
         for (Integer i : hSet){
             System.out.println(i);
         }//Listeler rasgele gelir sıralı gelmezler (ama sıralanabilir 'HASH!')
+
+        System.out.println("----------------------------");
+        System.out.println("Iterator");
+
+        Iterator<Integer> iterator = hSet.iterator();//Iterator da veriler üzerinden gezinmemizi sağlar şu an için bu yeterli
+        while (iterator.hasNext()){//Başta 0 değeri vardır diğer değere bakar eğer boş değilse ona geçer
+            System.out.println(iterator.next());//hasNext methodu ile bir döngüle girer 
+        }
 
     }
 }
