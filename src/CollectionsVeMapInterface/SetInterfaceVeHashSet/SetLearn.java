@@ -14,6 +14,12 @@ public class SetLearn {
         hSet.add(35);
         hSet.add(71);
 
+        System.out.println(hSet.isEmpty());
+        System.out.println(hSet.contains(12));
+        System.out.println(hSet.size());
+        //Hash in değerleri hep değiştiğinden verilere index ile ulaşılamaz
+        //Silme arama vb.. işlemler için direk değerin kendisi aranır indexi aranamaz
+        System.out.println(hSet.remove(71));
         for (Integer i : hSet){
             System.out.println(i);
         }//Listeler rasgele gelir sıralı gelmezler (ama sıralanabilir 'HASH!')
