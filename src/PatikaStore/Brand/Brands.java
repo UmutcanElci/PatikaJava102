@@ -10,6 +10,10 @@ public class Brands {
     private int id;
     private String name;
     private static List<Brands> brands = new ArrayList<>();
+
+    public Brands() {
+    }
+
     public Brands(String name) {
         this.name = name;
         this.id = idCount;
