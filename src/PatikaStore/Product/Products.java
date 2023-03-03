@@ -5,116 +5,91 @@ import com.sun.source.tree.Tree;
 
 import java.util.*;
 
-public class Products {
-    private String productName;
-    private int productPrice;
-    private int salePercent;
-    private int stock;
-    private int productId;
-    private static int productIdCount;
-    private int productStorage;
-    private double inc;
-    private int ram;
-    private Brands brand;
-    Scanner in = new Scanner(System.in);
-    //private static List<Brands> brands = new ArrayList<>();
-    private static TreeSet<Brands> brands = new TreeSet<>(new Comparator<Brands>() {
-        @Override
-        public int compare(Brands o1, Brands o2) {
-            return o1.getName().compareTo(o2.getName());
-        }
-    });
-
-    public Products(String productName, int productPrice, int salePercent, int stock, int productStorage, double inc, int ram, Brands brand) {
-        this.productName = productName;
-        this.productPrice = productPrice;
-        this.salePercent = salePercent;
-        this.stock = stock;
-        this.productId = productIdCount;
-        this.productStorage = productStorage;
-        this.inc = inc;
-        this.ram = ram;
-        this.brand = brand;
-        productIdCount++;
-    }
+public abstract class Products{
+private String name;
+private Brands brands;
+private int price;
+private int amount;
+private int discountValue;
+private double inch;
+private int ram;
+private int memory;
 
     public Products() {
     }
 
-
-    static {
-        brands.add(new Brands("Samsung"));
-        brands.add(new Brands("Lenovo"));
-        brands.add(new Brands("Apple"));
-        brands.add(new Brands("Huawei"));
-        brands.add(new Brands("Casper"));
-        brands.add(new Brands("Asus"));
-        brands.add(new Brands("HP"));
-        brands.add(new Brands("Xiaomi"));
-        brands.add(new Brands("Monster"));
-    }
-    public String getProductName() {
-        return productName;
+    public Products(String name, Brands brands, int price, int amount, int discountValue, double inch, int ram, int memory) {
+        this.name = name;
+        this.brands = brands;
+        this.price = price;
+        this.amount = amount;
+        this.discountValue = discountValue;
+        this.inch = inch;
+        this.ram = ram;
+        this.memory = memory;
     }
 
-    public  Brands getBrand() {
-        return brand;
+    public String getName() {
+        return name;
     }
 
-    public void setBrand(Brands brand) {
-        this.brand = brand;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public int getProductPrice() {
-        return productPrice;
-    }
-
-    public void setProductPrice(int productPrice) {
-        this.productPrice = productPrice;
-    }
-
-    public int getSalePercent() {
-        return salePercent;
-    }
-
-    public void setSalePercent(int salePercent) {
-        this.salePercent = salePercent;
-    }
-
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
-
-    public int getProductId() {
-        return productId;
-    }
-
-    public TreeSet<Brands> getBrands() {
+    public Brands getBrands() {
         return brands;
     }
 
-    public void setBrands(TreeSet<Brands> brands) {
+    public void setBrands(Brands brands) {
         this.brands = brands;
     }
-    public Brands getBrandById(int id){
-        for (Brands b : brands){
-            if (id == b.getId()){
-                return b;
-            }
-        }
-        return null;
+
+    public int getPrice() {
+        return price;
     }
-    public void addBrand(){
-        System.out.println("Enter Brand name : ");
-        String brandName = in.next();
-        brands.add(new Brands(brandName));
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public int getDiscountValue() {
+        return discountValue;
+    }
+
+    public void setDiscountValue(int discountValue) {
+        this.discountValue = discountValue;
+    }
+
+    public double getInch() {
+        return inch;
+    }
+
+    public void setInch(double inch) {
+        this.inch = inch;
+    }
+
+    public int getRam() {
+        return ram;
+    }
+
+    public void setRam(int ram) {
+        this.ram = ram;
+    }
+
+    public int getMemory() {
+        return memory;
+    }
+
+    public void setMemory(int memory) {
+        this.memory = memory;
     }
 }

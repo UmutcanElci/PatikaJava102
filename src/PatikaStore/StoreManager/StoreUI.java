@@ -1,17 +1,20 @@
 package PatikaStore.StoreManager;
 
 import PatikaStore.Brand.Brands;
-import PatikaStore.Product.Prodcuts;
+import PatikaStore.Product.NoteBooks;
+import PatikaStore.Product.Products;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class StoreUI implements IStoreManager {
 
+
     @Override
     public void printBrands() {
-       Prodcuts prodcuts = new Prodcuts();
-       for (Brands brands : prodcuts.getBrands()){
-           System.out.println(brands.getName());
-       }
+        NoteBooks n = new NoteBooks();
+        n.add();
     }
 
     @Override
