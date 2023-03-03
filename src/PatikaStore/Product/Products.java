@@ -1,16 +1,22 @@
 package PatikaStore.Product;
 
 import PatikaStore.Brand.Brands;
+import com.sun.source.tree.Tree;
+
 import java.util.*;
 
-public class Prodcuts{
+public class Products {
     private String productName;
     private int productPrice;
     private int salePercent;
     private int stock;
     private int productId;
     private static int productIdCount;
-    private static Brands brand;
+    private int productStorage;
+    private double inc;
+    private int ram;
+    private Brands brand;
+    Scanner in = new Scanner(System.in);
     //private static List<Brands> brands = new ArrayList<>();
     private static TreeSet<Brands> brands = new TreeSet<>(new Comparator<Brands>() {
         @Override
@@ -19,14 +25,22 @@ public class Prodcuts{
         }
     });
 
-    public Prodcuts(String productName, int productPrice, int salePercent, int stock) {
+    public Products(String productName, int productPrice, int salePercent, int stock, int productStorage, double inc, int ram, Brands brand) {
         this.productName = productName;
         this.productPrice = productPrice;
         this.salePercent = salePercent;
         this.stock = stock;
         this.productId = productIdCount;
+        this.productStorage = productStorage;
+        this.inc = inc;
+        this.ram = ram;
+        this.brand = brand;
         productIdCount++;
     }
+
+    public Products() {
+    }
+
 
     static {
         brands.add(new Brands("Samsung"));
@@ -41,6 +55,14 @@ public class Prodcuts{
     }
     public String getProductName() {
         return productName;
+    }
+
+    public  Brands getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brands brand) {
+        this.brand = brand;
     }
 
     public void setProductName(String productName) {
@@ -75,23 +97,24 @@ public class Prodcuts{
         return productId;
     }
 
-    public void setProductId(int productId) {
-        this.productId = productId;
-    }
-
-    public static int getProductIdCount() {
-        return productIdCount;
-    }
-
-    public static void setProductIdCount(int productIdCount) {
-        Prodcuts.productIdCount = productIdCount;
-    }
-
     public TreeSet<Brands> getBrands() {
         return brands;
     }
 
     public void setBrands(TreeSet<Brands> brands) {
-        Prodcuts.brands = brands;
+        this.brands = brands;
+    }
+    public Brands getBrandById(int id){
+        for (Brands b : brands){
+            if (id == b.getId()){
+                return b;
+            }
+        }
+        return null;
+    }
+    public void addBrand(){
+        System.out.println("Enter Brand name : ");
+        String brandName = in.next();
+        brands.add(new Brands(brandName));
     }
 }
