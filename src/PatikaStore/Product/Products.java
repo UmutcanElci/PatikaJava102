@@ -1,9 +1,6 @@
 package PatikaStore.Product;
 
 import PatikaStore.Brand.Brands;
-import com.sun.source.tree.Tree;
-
-import java.util.*;
 
 public abstract class Products{
 private String name;
