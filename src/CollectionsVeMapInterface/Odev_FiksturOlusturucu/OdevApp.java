@@ -4,9 +4,6 @@ import java.util.*;
 
 public class OdevApp {
     public static void main(String[] args) {
-        MatchMixer matchMixer = new MatchMixer();
-        matchMixer.fixture();
-
-
+        MatchMixer m = new MatchMixer();
     }
 }

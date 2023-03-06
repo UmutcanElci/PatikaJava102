@@ -30,7 +30,7 @@ public class SetLearn {
 
         Iterator<Integer> iterator = hSet.iterator();//Iterator da veriler üzerinden gezinmemizi sağlar şu an için bu yeterli
         while (iterator.hasNext()){//Başta 0 değeri vardır diğer değere bakar eğer boş değilse ona geçer
-            System.out.println(iterator.next());//hasNext methodu ile bir döngüle girer 
+            System.out.println(iterator.next());//hasNext methodu ile bir döngüle girer
         }
 
     }

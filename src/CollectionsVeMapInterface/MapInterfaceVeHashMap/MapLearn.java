@@ -25,5 +25,5 @@ public class MapLearn {
         }//values ile de sadece values değerleri ile çalışırız
 
 
-    }//MAPLER SIRALI DEĞİLDİR
+    }//HASHLER SIRALI DEĞİLDİR
 }

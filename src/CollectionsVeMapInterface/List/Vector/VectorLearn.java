@@ -14,7 +14,7 @@ public class VectorLearn {
         vector.add(2,"Bolu");
         vector.remove(2);
         System.out.println(vector.get(3));
-        System.out.println(vector.capacity());
+        System.out.println(vector.capacity());//default capacity 10
 
         Iterator<String> iterator = vector.iterator();
 
