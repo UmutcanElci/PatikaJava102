@@ -6,5 +6,5 @@ public abstract class Insurance {
     private String insuranceName;
     private double insurancePrice;
     private Date insuranceDate;
-    public abstract void calculate();
+    public abstract double calculate(double insurancePrice);
 }
