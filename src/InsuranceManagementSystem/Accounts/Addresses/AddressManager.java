@@ -5,7 +5,7 @@ import InsuranceManagementSystem.Accounts.User;
 import java.util.Scanner;
 
 public class AddressManager {
-    Scanner in = new Scanner(System.in);
+    static Scanner in = new Scanner(System.in);
     private static User user;
     public static void addAddressToUser(Address address){
         user.getAddressList().add(address);
@@ -15,7 +15,7 @@ public class AddressManager {
         user.getAddressList().remove(address);
     }
 
-    public Address addAddress(String city,String street,int no){
+    public static Address addAddress(String city,String street,int no){
         int choice = 0;
         System.out.println("To add Home Address press - 1 - \n To add Business Address press - 2 -");
         choice = in.nextInt();

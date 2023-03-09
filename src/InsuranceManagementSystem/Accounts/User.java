@@ -2,6 +2,7 @@ package InsuranceManagementSystem.Accounts;
 
 import InsuranceManagementSystem.Accounts.Addresses.Address;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -18,15 +19,14 @@ public class User {
     public User() {
     }
 
-    public User(String name, String surName, String email, String password, String career, int age, ArrayList<Address> addressList, Date date) {
+    public User(String name, String surName, String email, String password, String career, int age) {
         this.name = name;
         this.surName = surName;
         this.email = email;
         this.password = password;
         this.career = career;
         this.age = age;
-        this.addressList = addressList;
-        this.date = date;
+        this.date=Date.from(Instant.now());
     }
 
     public String getName() {
