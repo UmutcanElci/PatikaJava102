@@ -20,7 +20,7 @@ public class FileLearn {
             throw new RuntimeException(e.getMessage());
         }
 
-        
+        f.delete();//Dosya silme işlemi
 
     }
 }
