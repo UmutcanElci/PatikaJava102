@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class SchoolUser {
     private int id;
@@ -151,5 +152,65 @@ public class SchoolUser {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+
+
+    public static boolean updateUser(int id, String name , String uname, String pass,String type){
+        String query = "UPDATE public.\"SchoolUser\" SET name=?, uname=?, pass=?, account_type=? WHERE id = ?;";
+        SchoolUser findUser = SchoolUser.getFetch(uname);
+        if (findUser != null && findUser.getId() != id){
+            Helper.showMsg("Kullanıcı ismi mevcut!");
+            return false;
+        }
+
+        try {
+            PreparedStatement pr = DBConnector.getInstance().prepareStatement(query);
+            pr.setString(1,name);
+            pr.setString(2,uname);
+            pr.setString(3,pass);
+            pr.setString(4,type);
+            pr.setInt(5,id);
+
+            return pr.executeUpdate() != -1;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public static ArrayList<SchoolUser> searchUser(String query){
+        ArrayList<SchoolUser> arrayList = new ArrayList<>();
+        SchoolUser obj;
+        try {
+            Statement st = DBConnector.getInstance().createStatement();
+            ResultSet rs = st.executeQuery(query);
+            while (rs.next()){
+                obj = new SchoolUser();
+                obj.setId(rs.getInt("id"));
+                obj.setName(rs.getString("name"));
+                obj.setUname(rs.getString("uname"));
+                obj.setPass(rs.getString("pass"));
+                obj.setType(rs.getString("account_type"));
+                arrayList.add(obj);
+            }
+            st.close();
+            rs.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return arrayList;
+    }
+
+    public static String searchQuery(String name,String uname,String type){
+        String query = "SELECT * FROM public.\"SchoolUser\" WHERE uname LIKE '%{{uname}}%' AND name LIKE '%{{name}}%'";
+        query = query.replace("{{uname}}", uname);
+        query = query.replace("{{name}}", name);
+        if (!type.isEmpty()){
+            query += " AND account_type='{{type}}'";
+            query = query.replace("{{type}}", type);
+        }
+        System.out.println(query);
+        return query;
     }
 }
